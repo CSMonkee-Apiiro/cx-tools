@@ -1,2 +1,12 @@
 .dccache
 __pycache__
+
+# Build results
+bin/
+obj/
+
+# OS files
+.DS_Store
+
+# Snyk Security Extension - AI Rules 
+.github/instructions/snyk_rules.instructions.md
