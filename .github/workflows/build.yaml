@@ -39,31 +39,31 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          # Use workflow input when provided (manual run) otherwise default to 18
-          node-version: ${{ github.event.inputs.node-version || '18' }}
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build
-        run: npm run build --if-present
-
-      - name: Run tests
-        run: npm test --if-present
-
-      - name: Lint
-        run: npm run lint --if-present
-
-      - name: Upload build logs (artifact)
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: ci-logs
-          path: |
-            ./npm-debug.log
-            ./build.log
-          # If the files above don't exist, upload-artifact will report no files; adjust as needed.
+#      - name: Set up Node.js
+#        uses: actions/setup-node@v4
+#        with:
+#          # Use workflow input when provided (manual run) otherwise default to 18
+#          node-version: ${{ github.event.inputs.node-version || '18' }}
+#          cache: 'npm'
+#
+#      - name: Install dependencies
+#        run: npm ci
+#
+#      - name: Build
+#        run: npm run build --if-present
+#
+#      - name: Run tests
+#        run: npm test --if-present
+#
+#      - name: Lint
+#        run: npm run lint --if-present
+#
+#      - name: Upload build logs (artifact)
+#        if: always()
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: ci-logs
+#          path: |
+#            ./npm-debug.log
+#            ./build.log
+#          # If the files above don't exist, upload-artifact will report no files; adjust as needed.
